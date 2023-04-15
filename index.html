@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dice Game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<h1>Let's Start The Game</h1>
+	<div class="dice">
+		<p>Player 1</p>
+		<img src="dice1.png" alt="dice-img" id="check1"><br><br>
+		<button onclick="diceGame()">Roll The Dice</button>
+	</div>
+	<div class="dice">
+		<p>Player 2</p>
+		<img src="dice3.png" alt="dice-img" id="check2"><br><br>
+		<button onclick="gameDice()">Roll The Dice</button>
+	</div><br><br>
+	
+		<button onclick="result()">Result</button>
+	
+</div>
+
+<script type="text/javascript">
+		
+		let play1
+		let play2
+
+	function diceGame(){
+
+		play1=Math.floor(Math.random()*6)+1;
+		const play1dice=`dice${play1}.png`;
+		document.getElementById("check1").setAttribute('src',play1dice);
+	}
+
+	function gameDice() {
+
+		play2=Math.floor(Math.random()*6)+1;
+		const play2dice=`dice${play2}.png`;
+		document.getElementById("check2").setAttribute('src',play2dice);
+	}
+
+	function result(){
+
+			if (play1 > play2){
+					document.querySelector('h1').innerHTML="player 1 won The Match!";
+				}
+			else if (play1 < play2){
+					document.querySelector('h1').innerHTML="player 2 won The Match!";
+				}
+			else {
+					document.querySelector('h1').innerHTML="DRAW The Match";
+				}
+	}	
+</script>
+</body>
+</html>
