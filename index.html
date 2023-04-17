@@ -13,18 +13,19 @@
 <div class="container">
 	<h1>Let's Start The Game</h1>
 	<div class="dice">
-		<p>Player 1</p>
+		<p class="Player1">Player 1</p>
 		<img src="dice1.png" alt="dice-img" id="check1"><br><br>
 		<button onclick="diceGame()">Roll The Dice</button>
 	</div>
 	<div class="dice">
-		<p>Player 2</p>
+		<p class="Player2">Player 2</p>
 		<img src="dice3.png" alt="dice-img" id="check2"><br><br>
 		<button onclick="gameDice()">Roll The Dice</button>
 	</div><br><br>
 	
-		<button onclick="result()">Result</button>
-	
+		<button onclick="result()">Game Result</button><br><br>
+		
+		<button type="button" class="butn" onClick="editNames()"> Edit Names </button>
 </div>
 
 <script type="text/javascript">
@@ -49,15 +50,30 @@
 	function result(){
 
 			if (play1 > play2){
-					document.querySelector('h1').innerHTML="player 1 won The Match!";
+					document.querySelector('h1').innerHTML=(player1)+ " won The Match!";
 				}
 			else if (play1 < play2){
-					document.querySelector('h1').innerHTML="player 2 won The Match!";
+					document.querySelector('h1').innerHTML=(player2)+" won The Match!";
 				}
 			else {
 					document.querySelector('h1').innerHTML="DRAW The Match";
 				}
-	}	
+	}
+
+
+		var player1="Player 1";
+		var player2="Player 2";
+
+		function editNames() {
+			player1 = prompt("Change Player1 name");
+			player2 = prompt("Change player2 name");
+
+			document.querySelector("p.Player1")
+							.innerHTML = player1;
+							
+			document.querySelector("p.Player2")
+							.innerHTML = player2;
+		}	
 </script>
 </body>
 </html>
